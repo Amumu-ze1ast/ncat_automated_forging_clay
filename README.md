@@ -315,30 +315,6 @@ ros2 run rqt_image_view rqt_image_view
 
 ---
 
-## 📚 Documentation
-
-### Step-by-Step Guides
-
-1. **Computer Vision Pipeline**: See `docs/vision_pipeline.md`
-2. **3D Reconstruction**: See `docs/3d_reconstruction.md`
-3. **Motion Planning**: See `docs/motion_planning.md`
-4. **FlexBE Integration**: See `docs/flexbe_guide.md`
-
-### Academic Papers
-
-- [Adaptive 3D Scanning Framework for Robotic Manipulation](docs/papers/)
-- [Closed-Loop Robotic Manipulation for Deformable Object Shaping](docs/papers/)
-
----
-
-## 🤝 Contributing
-
-We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for:
-- Code style guidelines
-- Pull request process
-- Issue reporting template
-- Testing requirements
-
 ### Areas for Contribution
 
 - [ ] Additional end-effector support
@@ -350,24 +326,13 @@ We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for:
 
 ---
 
-## 📄 License
-
-This project is licensed under the **MIT License** - see [LICENSE](LICENSE) file for details.
-
-**Attribution**: 
-- Kinova Gen3 API: Kinova Robotics
-- FlexBE Framework: University of Arizona
-- OpenCV: OpenCV Foundation
-
----
-
 ## 👥 Authors
 
 **Amanuel Abdo Tereda**
 - Ph.D. Candidate in Mechanical Engineering
 - North Carolina A&T State University
 - Advisor: Dr. Sun Yi
-- Email: [your-email@ncat.edu](mailto:your-email@ncat.edu)
+- Email: [aatereda@aggies.ncat.edu](mailto:aatereda@aggies.ncat.edu)
 
 ---
 
@@ -385,10 +350,8 @@ This project is licensed under the **MIT License** - see [LICENSE](LICENSE) file
 
 For issues, questions, or collaboration inquiries:
 
-- 📧 **Email**: your-email@ncat.edu
-- 🐛 **Issues**: [GitHub Issues](https://github.com/ncat/ncat_automated_forging_clay/issues)
-- 💬 **Discussions**: [GitHub Discussions](https://github.com/ncat/ncat_automated_forging_clay/discussions)
-- 📖 **Wiki**: [Project Wiki](https://github.com/ncat/ncat_automated_forging_clay/wiki)
+- 📧 **Email**: aatereda@ancat.edu
+
 
 ---
 
@@ -422,6 +385,6 @@ If you use this project in your research, please cite:
 
 ---
 
-**Last Updated**: 2024  
+**Last Updated**: 2026  
 **Latest Release**: [v0.1.0](https://github.com/ncat/ncat_automated_forging_clay/releases)  
 **Next Release**: v0.2.0 (Q2 2024)
