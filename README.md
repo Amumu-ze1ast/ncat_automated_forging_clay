@@ -374,6 +374,6 @@ If you use this project in your research, please cite:
 
 ---
 
-**Last Updated**: 2024  
+**Last Updated**: 2026
 **Latest Release**: [v0.1.0](https://github.com/ncat/ncat_automated_forging_clay/releases)  
 **Next Release**: v0.2.0 (Q2 2024)
