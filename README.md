@@ -328,7 +328,7 @@ ros2 run rqt_image_view rqt_image_view
 
 ## 👥 Authors
 
-**Amanuel Abdo Tereda**
+**Amanuel Abrdo Tereda**
 - Ph.D. Candidate in Mechanical Engineering
 - North Carolina A&T State University
 - Advisor: Dr. Sun Yi
@@ -377,7 +377,7 @@ If you use this project in your research, please cite:
 ```bibtex
 @software{ncat_automated_forging_2026,
   title={NCAT Automated Forging Clay: Autonomous Robotic System for Clay Manipulation},
-  author={Tereda, Amanuel Abdo and Yi, Sun},
+  author={Tereda, Amanuel Abrdo and Yi, Sun},
   year={2026},
   url={https://github.com/ncat/ncat_automated_forging_clay}
 }
