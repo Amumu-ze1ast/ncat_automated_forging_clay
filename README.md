@@ -350,7 +350,7 @@ ros2 run rqt_image_view rqt_image_view
 
 For issues, questions, or collaboration inquiries:
 
-- 📧 **Email**: aatereda@ancat.edu
+- 📧 **Email**: aatereda@aggies.ncat.edu
 
 
 ---
@@ -375,10 +375,10 @@ For issues, questions, or collaboration inquiries:
 If you use this project in your research, please cite:
 
 ```bibtex
-@software{ncat_automated_forging_2024,
+@software{ncat_automated_forging_2026,
   title={NCAT Automated Forging Clay: Autonomous Robotic System for Clay Manipulation},
   author={Tereda, Amanuel Abdo and Yi, Sun},
-  year={2024},
+  year={2026},
   url={https://github.com/ncat/ncat_automated_forging_clay}
 }
 ```
