@@ -1,0 +1,130 @@
+#!/usr/bin/env python3
+
+# Copyright 2024 Philipp Schillinger, Team ViGIR, Christopher Newport University
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#
+#    * Redistributions of source code must retain the above copyright
+#      notice, this list of conditions and the following disclaimer.
+#
+#    * Redistributions in binary form must reproduce the above copyright
+#      notice, this list of conditions and the following disclaimer in the
+#      documentation and/or other materials provided with the distribution.
+#
+#    * Neither the name of the Philipp Schillinger, Team ViGIR, Christopher Newport University nor the names of its
+#      contributors may be used to endorse or promote products derived from
+#      this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+# ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+# LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+# INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+# CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+# ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+# POSSIBILITY OF SUCH DAMAGE.
+
+
+"""Basic FlexBE State."""
+from flexbe_core.core.exceptions import StateError
+
+
+def _remove_duplicates(input_list):
+    output_list = []
+    for entry in input_list:
+        if entry not in output_list:
+            output_list.append(entry)
+    return output_list
+
+
+class State:
+    """Basic FlexBE State."""
+
+    _preempted_name = 'preempted'  # Define name here, but handle logic in derived class
+
+    def __init__(self, *args, **kwargs):
+        """Initialize state instance."""
+        self._outcomes = _remove_duplicates(kwargs.get('outcomes', []))
+        io_keys = kwargs.get('io_keys', [])
+        self._input_keys = _remove_duplicates(kwargs.get('input_keys', []) + io_keys)
+        self._output_keys = _remove_duplicates(kwargs.get('output_keys', []) + io_keys)
+        # properties of instances of a state machine
+        self._name = None
+        self._parent = None
+        self._state_id = -1  # Assigned with structure after all states added to behavior
+        self._inner_sync_request = False  # Any state can generate request, but should be rare
+        self._type = 0  # Basic states are type 0, containers have non-zero type
+        self._entering = True
+        self._exited = False  # State has exited since last on_enter
+
+    def __str__(self):
+        """Return name of this state."""
+        return self._name
+
+    def execute(self, userdata):
+        """Execute this state."""
+
+    @property
+    def sleep_duration(self):
+        """Return desired sleep duration."""
+        return 0.
+
+    @property
+    def outcomes(self):
+        """Return possible outcomes."""
+        return self._outcomes
+
+    @property
+    def input_keys(self):
+        """Return input userdata keys."""
+        return self._input_keys
+
+    @property
+    def output_keys(self):
+        """Return output userdata keys."""
+        return self._output_keys
+
+    # instance properties
+
+    @property
+    def name(self):
+        """Return state name."""
+        return self._name
+
+    def set_name(self, value):
+        """Set the name of this state."""
+        if self._name is not None:
+            raise StateError('Cannot change the name of a state!')
+
+        self._name = value
+
+    @property
+    def parent(self):
+        """Get parent state."""
+        return self._parent
+
+    def set_parent(self, value):
+        """Set parent of this state."""
+        if self._parent is not None:
+            raise StateError('Cannot change the parent of a state!')
+
+        self._parent = value
+
+    @property
+    def state_id(self):
+        """Return state id (hash code)."""
+        return self._state_id
+
+    @property
+    def path(self):
+        """Return path from root state machine."""
+        return '' if self.parent is None else self.parent.path + '/' + self.name
+
+    @property
+    def type(self):  # noqa: A003
+        """Return state type."""
+        return self._type
